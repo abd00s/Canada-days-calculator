@@ -2,6 +2,7 @@ require 'sinatra'
 require_relative 'event.rb'
 require_relative 'calculator.rb'
 
+$calculator = Calculator.new("")
 
 get "/" do 
 	erb :index
