@@ -11,7 +11,7 @@ class Calculator
 	def calculate
 		@travels.each {|event| @total_days_absent += event.duration}
 		required_days = application_type
-		application date = @start_date + required_days + @total_days_absent
+		application_date = @start_date + required_days + @total_days_absent
 	end
 
 	def application_type
