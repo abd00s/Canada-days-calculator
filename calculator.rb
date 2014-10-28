@@ -10,11 +10,11 @@ class Calculator
 
 	def calculate
 		@travels.each {|event| @total_days_absent += event.duration}
-		application_type
+		required_days = application_type
 	end
 
 	def application_type
-		case applying_for
+		case @applying_for
 		when "Residency Renewal" then 730
 		when "Apply for Citizenship" then 1095
 		when "Apply for Citizenship (new law)" then 1460
