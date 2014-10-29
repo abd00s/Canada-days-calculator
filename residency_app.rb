@@ -1,9 +1,11 @@
 require 'sinatra'
+require 'date'
 require_relative 'event.rb'
 require_relative 'calculator.rb'
 require_relative 'log.rb'
 
 $log = Log.new 
+$start_day = Date.parse('2013-01-27')
 
 get "/" do 
 	erb :index
@@ -29,6 +31,7 @@ end
 
 get '/results' do
 	@total_days_absent = $log.total_days_absent
+	# @apply_on = @total_days_absent + $start_day
 	erb :results
 	#do calculation
 	# erb :results
