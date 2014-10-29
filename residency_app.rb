@@ -25,7 +25,16 @@ post "/add_event" do
 	redirect to('/show_history')
 end
 
-get '/calculate' do
+
+
+get '/results' do
+	@total_days_absent = $log.total_days_absent
+	erb :results
 	#do calculation
 	# erb :results
+end
+
+post '/results' do
+	#@total_days_absent = $log.total_days_absent
+	erb :results 	
 end
