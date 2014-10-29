@@ -1,10 +1,10 @@
 class Event		
-	attr_reader :duration
+	attr_reader :duration, :date_from, :date_to, :location, :description
 	def initialize(date_from, date_to, location, description)
 		@date_from = date_from
 		@date_to = date_to
 		@location = location
 		@description = description
-		@duration = @date_to - @date_from		
+		@duration = Date.strptime(@date_to, '%Y-%m-%d') - Date.strptime(@date_from, '%Y-%m-%d')
 	end
 end
