@@ -8,7 +8,7 @@ $log = Log.new
 $start_day = Date.parse('2013-01-27')
 
 get "/" do 
-	erb :index
+	erb :index, :layout => :layout
 end
 
 # post "/" do
@@ -18,12 +18,12 @@ end
 # end
 
 get "/add_event" do
-	erb :add_event
+	erb :add_event, :layout => :layout
 end
 
 get "/show_history" do
 	@events = $log.events
-	erb :show_history
+	erb :show_history, :layout => :layout
 end
 
 
@@ -40,12 +40,12 @@ get '/results' do
 	selector = Selector.new(params[:application_type])
  	@days_required = selector.application_type
 	# @apply_on = @total_days_absent + $start_day
-	erb :results
+	erb :results, :layout => :layout
 	#do calculation
 	# erb :results
 end
 
 post '/results' do
 	#@total_days_absent = $log.total_days_absent
-	erb :results 	
+	erb :results, :layout => :layout 	
 end

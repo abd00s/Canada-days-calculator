@@ -4,7 +4,6 @@
   <title>Show History</title>
   </head>
   <body>
-    <h1>Canada Days Calculator</h1>
     <h2>Travel History</h2>
     <table>
     	<thead>
@@ -12,6 +11,7 @@
     			<th>From</th><th>To</th><th>Location</th><th>Description</th>
     		</tr>
     	</thead>
+      <tbody>
           <% @events.each  do |event| %>
             <tr>
               <td><%= event.date_from  %></td>
@@ -20,10 +20,7 @@
               <td><%= event.description  %></td> 
             </tr> 
           <% end %>
-    	<tbody>
-    		
-    	</tbody>
+      </tbody>
     </table>
-    <a href="/">Home</a>
   </body>
 </html>
