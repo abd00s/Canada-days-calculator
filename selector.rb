@@ -6,9 +6,9 @@ class Selector
 
 	def application_type
 		case @applying_for
-		when "Residency Renewal" then 730
-		when "Apply for Citizenship" then 1095
-		when "Apply for Citizenship (new law)" then 1460
+		when "Residency_Renewal" then 730
+		when "Citizenship" then 1095
+		when "Citizenship_new" then 1460
 		end
 	end
 end

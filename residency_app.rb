@@ -11,6 +11,12 @@ get "/" do
 	erb :index
 end
 
+# post "/" do
+# 	$selector = Selector.new(params[:application_type])
+# 	@days_required = selector.application_type
+# 	redirect to('/results')
+# end
+
 get "/add_event" do
 	erb :add_event
 end
@@ -31,6 +37,8 @@ end
 
 get '/results' do
 	@total_days_absent = $log.total_days_absent
+	selector = Selector.new(params[:application_type])
+ 	@days_required = selector.application_type
 	# @apply_on = @total_days_absent + $start_day
 	erb :results
 	#do calculation
