@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'date'
 require_relative 'event.rb'
-require_relative 'calculator.rb'
+require_relative 'selector.rb'
 require_relative 'log.rb'
 
 $log = Log.new 
