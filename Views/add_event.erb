@@ -5,11 +5,15 @@
   </head>
   <body>
     <h2>Add a New Event</h2>
-    <form action="/add_event" method="post">
-  		From:&nbsp;<input type="date" name="date_from"><br>
-  		To:&nbsp;<input type="date" name="date_to"><br>
-  		Location:&nbsp;<input type="text" name="location"><br>
-  		Description:&nbsp;<input type="text" name="description"><br>
+    <form id="new_event" action="/add_event" method="post">
+  		<label for="new_from">From:</label>
+      <input id="new_from" type="date" name="date_from"><br>
+      <label for="new_to">To:</label>
+      <input id="new_to" type="date" name="date_to"><br>
+      <label for="new_location">Location:</label>
+      <input id="new_location" type="text" name="location"><br>
+      <label for="new_desc">Description:</label>  		
+      <input id="new_desc" type="text" name="description"><br>
   		<input type="submit" name="Submit">  	
     </form>
   </body>

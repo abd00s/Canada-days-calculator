@@ -10,10 +10,19 @@
     	<li><a href="/show_history">Show Travel History</a></li>
     </ul>
     <form action="/results" method="get">
-    	<input type="radio" name="application_type" value="Residency_Renewal" checked>Residency Renewal<br>
-    	<input type="radio" name="application_type" value="Citizenship">Apply for Citizenship<br>
-    	<input type="radio" name="application_type" value="Citizenship_new">Apply for Citizenship (new law)<br>
-    	<input type="submit" name ="Submit">
+    	<label>
+        <input type="radio" name="application_type" value="Residency_Renewal" checked>
+        Residency Renewal<br>
+      </label>
+    	<label>
+        <input type="radio" name="application_type" value="Citizenship">
+        Apply for Citizenship<br>
+      </label>
+      <label>
+        <input type="radio" name="application_type" value="Citizenship_new">
+        Apply for Citizenship (new law)<br>
+      </label>
+      <input type="submit" name ="Submit">
     </form>
   </body>
 </html>
