@@ -62,7 +62,7 @@ put '/show_history/:id' do
 	if @event 
 		@event.date_from = params[:date_from]
 		@event.date_to = params[:date_to]
-		@event.location = params[:date_location]
+		@event.location = params[:location]
 		@event.description = params[:description]
 
 		redirect to '/show_history'

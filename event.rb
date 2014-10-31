@@ -1,6 +1,5 @@
 class Event		
-	attr_reader :duration, :date_from, :date_to, :location, :description
-	attr_accessor :id
+	attr_accessor :id, :duration, :date_from, :date_to, :location, :description
 	def initialize(date_from, date_to, location, description)
 		@date_from = date_from
 		@date_to = date_to
