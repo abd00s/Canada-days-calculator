@@ -33,8 +33,6 @@ post "/add_event" do
 	redirect to('/add_event')
 end
 
-
-
 get '/results' do
 	@total_days_absent = $log.total_days_absent
 	selector = Selector.new(params[:application_type])
@@ -49,3 +47,15 @@ post '/results' do
 	#@total_days_absent = $log.total_days_absent
 	erb :results, :layout => :layout 	
 end
+
+get '/:id' do
+	@event = $log.event_details(params[:id].to_i)
+	erb :show_event
+end
+
+
+
+
+
+
+
