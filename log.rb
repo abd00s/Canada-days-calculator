@@ -14,6 +14,10 @@ class Log
 		@id += 1
 	end
 
+	def delete_event(event)
+		@events.delete(event)
+	end
+
 	def event_details(id)
 		@events.find {|event| event.id == id}
 	end

@@ -5,3 +5,8 @@
 	<li><strong>Location:</strong> <%= @event.location %></li>
 	<li><strong>Description:</strong> <%= @event.description %></li>
 </ul>
+
+<form action="/show_history/<%= @event.id %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete Event" name="Delete Event">
+</form>

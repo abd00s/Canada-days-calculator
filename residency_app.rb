@@ -11,12 +11,6 @@ get "/" do
 	erb :index, :layout => :layout
 end
 
-# post "/" do
-# 	$selector = Selector.new(params[:application_type])
-# 	@days_required = selector.application_type
-# 	redirect to('/results')
-# end
-
 get "/add_event" do
 	erb :add_event, :layout => :layout
 end
@@ -78,7 +72,17 @@ get "/show_history/:id/edit" do
 	else
 		raise Sinatra::NotFound
 	end
-	
+end
+
+delete "/show_history/:id" do
+	@event = $log.event_details(params[:id].to_i)
+	if @event 
+		$log.delete_event(@event)
+		redirect to ("/show_history")
+
+	else
+		raise Sinatra::NotFound
+	end
 end
 
 
