@@ -58,6 +58,12 @@ h1 {
 	text-align: center;
 }
 
+h2 {
+	font-family: Verdana;
+	font-size: 36px;
+	text-align: center;
+}
+
 /*====*/
 /*#nav li {
 	width: 15%;
@@ -129,4 +135,19 @@ a {
 
 #nav li:hover {
 	color: white;
+}
+
+td, th {
+	border: 1px solid black;
+	text-align: center;
+	padding: 4px;
+}
+
+th {
+	font-weight: bold;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
 }

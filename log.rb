@@ -1,6 +1,7 @@
 class Log
 	def initialize
 		@events = []
+		@id = 1
 	end
 
 	def events
@@ -8,7 +9,13 @@ class Log
 	end
 
 	def add_event(event)
+		event.id = @id
 		@events << event
+		@id += 1
+	end
+
+	def event_details(id)
+		@events.find {|event| event.id == id}
 	end
 
 	def total_days_absent

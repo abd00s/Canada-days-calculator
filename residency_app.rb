@@ -30,7 +30,7 @@ end
 post "/add_event" do
 	new_event = Event.new(params[:date_from], params[:date_to], params[:location], params[:description])
 	$log.add_event(new_event)
-	redirect to('/show_history')
+	redirect to('/add_event')
 end
 
 
