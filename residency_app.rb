@@ -48,9 +48,37 @@ post '/results' do
 	erb :results, :layout => :layout 	
 end
 
-get '/:id' do
+get '/show_history/:id' do
 	@event = $log.event_details(params[:id].to_i)
-	erb :show_event
+	if @event 
+		erb :show_event
+	else
+		raise Sinatra::NotFound
+	end
+end
+
+put '/show_history/:id' do
+	@event = $log.event_details(params[:id].to_i)
+	if @event 
+		@event.date_from = params[:date_from]
+		@event.date_to = params[:date_to]
+		@event.location = params[:date_location]
+		@event.description = params[:description]
+
+		redirect to '/show_history'
+	else
+		raise Sinatra::NotFound
+	end
+end
+
+get "/show_history/:id/edit" do
+	@event = $log.event_details(params[:id].to_i)
+	if @event
+		erb :edit_event
+	else
+		raise Sinatra::NotFound
+	end
+	
 end
 
 

@@ -1,0 +1,10 @@
+<h3>Edit an Event</h3>
+
+<form action="/show_history/<%= @event.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="text" name="date_from" value="<%= @event.date_from %>">
+  <input type="text" name="date_to" value="<%= @event.date_to %>">
+  <input type="text" name="location" value="<%= @event.location %>">
+  <input type="text" name="description" value="<%= @event.description %>">
+  <input type="submit" name="Submit">
+</form>
