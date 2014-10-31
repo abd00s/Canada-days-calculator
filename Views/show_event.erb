@@ -10,3 +10,10 @@
 	<input type="hidden" name="_method" value="delete">
 	<input type="submit" value="Delete Event" name="Delete Event">
 </form>
+<form action="/show_history/<%= @event.id %>" method="get">
+	<a href="/show_history/<%= @event.id %>/edit"><input type="button" value="Modify Event" name="Modify Event" ></a>
+</form>
+<!-- <form action="/show_history/<%= @event.id %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete Event" name="Delete Event">
+</form> -->
