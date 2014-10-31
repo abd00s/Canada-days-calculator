@@ -17,7 +17,14 @@
               <td><%= event.date_from  %></td>
               <td><%= event.date_to  %></td>
               <td><%= event.location  %></td>
-              <td><%= event.description  %></td> 
+              <td><%= event.description  %></td>
+              <td id="edit_btn">
+                <a href="/show_history/<%= event.id %>"><button>Edit Entry</button></a>
+<!--                 <form action="/show_history/<%= event.id %>" method="get">
+                  <input type="hidden" name="_method" value="put">
+                  <input type="submit" value="Edit Event">
+                </form> -->
+              </td> 
             </tr> 
           <% end %>
       </tbody>
