@@ -1,5 +1,9 @@
 require 'sinatra'
 require 'date'
+require 'data_mapper'
+
+DataMapper.setup(:default, "sqlite3:database.sqlite3")
+
 require_relative 'event.rb'
 require_relative 'selector.rb'
 require_relative 'log.rb'
