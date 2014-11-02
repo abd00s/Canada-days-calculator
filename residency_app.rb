@@ -82,16 +82,18 @@ end
 
 put '/show_history/:id' do
 	# @event = $log.event_details(params[:id].to_i)
+	@event = Event.get(params[:id].to_i)
 	if @event 
 		@event.date_from = params[:date_from]
 		@event.date_to = params[:date_to]
 		@event.location = params[:location]
 		@event.description = params[:description]
-
+		@event.save
 		redirect to '/show_history'
 	else
 		raise Sinatra::NotFound
 	end
+
 end
 
 get "/show_history/:id/edit" do
