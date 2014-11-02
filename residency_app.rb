@@ -68,13 +68,19 @@ end
 get "/results" do
 	@events = Event.all
 	@duration = @events.inject(0) {|sum, event| sum += (event.date_to - event.date_from)}.to_i
-	erb :results
+	@selector = Selector.new(params[:application_type])
+	@days_required = @selector.application_type
+	erb :results, :layout => :layout
 end
 
 
-post '/results' do 												#NEEDS WORK
-	#@total_days_absent = $log.total_days_absent
-	erb :results, :layout => :layout 	
+# post '/results' do 												#NEEDS WORK
+# 	#@total_days_absent = $log.total_days_absent
+# 	erb :results, :layout => :layout 	
+# end
+
+post "/results" do
+	erb :results, :layout => :layout 
 end
 
 get '/show_history/:id' do
