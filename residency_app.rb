@@ -81,7 +81,7 @@ get '/show_history/:id' do
 end
 
 put '/show_history/:id' do
-	@event = $log.event_details(params[:id].to_i)
+	# @event = $log.event_details(params[:id].to_i)
 	if @event 
 		@event.date_from = params[:date_from]
 		@event.date_to = params[:date_to]
@@ -95,7 +95,8 @@ put '/show_history/:id' do
 end
 
 get "/show_history/:id/edit" do
-	@event = $log.event_details(params[:id].to_i)
+	# @event = $log.event_details(params[:id].to_i)
+	@event = Event.get(params[:id].to_i)
 	if @event
 		erb :edit_event
 	else
