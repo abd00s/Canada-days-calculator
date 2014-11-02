@@ -55,17 +55,24 @@ post "/add_event" do
 	redirect to ("/add_event")
 end
 
-get '/results' do
-	@total_days_absent = $log.total_days_absent
-	selector = Selector.new(params[:application_type])
- 	@days_required = selector.application_type
-	# @apply_on = @total_days_absent + $start_day
-	erb :results, :layout => :layout
-	#do calculation
-	# erb :results
+# get '/results' do 												#NEEDS WORK
+# 	@total_days_absent = $log.total_days_absent
+# 	selector = Selector.new(params[:application_type])
+#  	@days_required = selector.application_type
+# 	# @apply_on = @total_days_absent + $start_day
+# 	erb :results, :layout => :layout
+# 	#do calculation
+# 	# erb :results
+# end
+
+get "/results" do
+	@events = Event.all
+	@duration = @events.inject(0) {|sum, event| sum += (event.date_to - event.date_from)}.to_i
+	erb :results
 end
 
-post '/results' do
+
+post '/results' do 												#NEEDS WORK
 	#@total_days_absent = $log.total_days_absent
 	erb :results, :layout => :layout 	
 end
