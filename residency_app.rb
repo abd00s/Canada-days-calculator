@@ -70,6 +70,7 @@ get "/results" do
 	@duration = @events.inject(0) {|sum, event| sum += (event.date_to - event.date_from)}.to_i
 	@selector = Selector.new(params[:application_type])
 	@days_required = @selector.application_type
+	@apply_on = $start_day + @duration + @days_required
 	erb :results, :layout => :layout
 end
 
