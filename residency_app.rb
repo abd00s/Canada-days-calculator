@@ -2,13 +2,25 @@ require 'sinatra'
 require 'date'
 require 'data_mapper'
 
-DataMapper.setup(:default, "sqlite3:database.sqlite3")
-
-require_relative 'event.rb'
 require_relative 'selector.rb'
 require_relative 'log.rb'
 
-$log = Log.new 
+DataMapper.setup(:default, "sqlite3:database.sqlite3")
+
+class Event		
+	include DataMapper::Resource 
+	property :id, Serial
+	property :date_from, Date
+	property :date_to, Date
+	property :location, String
+	property :description, String
+	# @duration = Date.strptime(@date_to, '%Y-%m-%d') - Date.strptime(@date_from, '%Y-%m-%d')
+end
+	DataMapper.finalize
+	DataMapper.auto_upgrade!
+
+
+# $log = Log.new 		DataMapper
 $start_day = Date.parse('2013-01-27')
 
 get "/" do 
@@ -16,19 +28,31 @@ get "/" do
 end
 
 get "/add_event" do
+	@events = Event.all 				#DataMapper
 	erb :add_event, :layout => :layout
 end
 
 get "/show_history" do
-	@events = $log.events
+	# @events = $log.events    #DataMapper
+	@events = Event.all
 	erb :show_history, :layout => :layout
 end
 
 
+# post "/add_event" do  											#DataMapper
+# 	new_event = Event.new(params[:date_from], params[:date_to], params[:location], params[:description])
+# 	$log.add_event(new_event)
+# 	redirect to('/add_event')
+# end
+
 post "/add_event" do
-	new_event = Event.new(params[:date_from], params[:date_to], params[:location], params[:description])
-	$log.add_event(new_event)
-	redirect to('/add_event')
+	new_event = Event.create(
+		:date_from   => params[:date_from],
+		:date_to     => params[:date_to],
+		:location    => params[:location],
+		:description => params[:description]
+		)
+	redirect to ("/add_event")
 end
 
 get '/results' do
@@ -47,7 +71,7 @@ post '/results' do
 end
 
 get '/show_history/:id' do
-	@event = $log.event_details(params[:id].to_i)
+	# @event = $log.event_details(params[:id].to_i)  #DataMapper
 	if @event 
 		erb :show_event
 	else
