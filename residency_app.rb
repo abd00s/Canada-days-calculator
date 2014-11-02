@@ -72,6 +72,7 @@ end
 
 get '/show_history/:id' do
 	# @event = $log.event_details(params[:id].to_i)  #DataMapper
+	@event = Event.get(params[:id].to_i)
 	if @event 
 		erb :show_event
 	else
