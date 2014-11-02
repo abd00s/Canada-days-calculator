@@ -107,9 +107,10 @@ get "/show_history/:id/edit" do
 end
 
 delete "/show_history/:id" do
-	@event = $log.event_details(params[:id].to_i)
+	# @event = $log.event_details(params[:id].to_i) #DataMapper
+	@event = Event.get(params[:id].to_i)
 	if @event 
-		$log.delete_event(@event)
+		@event.destroy
 		redirect to ("/show_history")
 
 	else
